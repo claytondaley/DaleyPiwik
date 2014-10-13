@@ -1,5 +1,6 @@
 <?php
 /**
+ * DaleyPiwik ZF2 Module
  * Copyright (C) 2014-2015 Clayton Daley III
  *
  * This program is free software: you can redistribute it and/or modify
@@ -16,10 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-return array(
-    'service_manager' => array(
-        'factories' => array(
-            'DaleyPiwik\Service\PhpTracker' => 'DaleyPiwik\Factory\Service\PhpTrackerFactory',
-        ),
-    ),
-);
+namespace DaleyPiwik\Contract;
+
+abstract class ClientSideAnalytics implements ClientSideAnalyticsInterface {
+    use ClientSideAnalyticsTrait;
+}

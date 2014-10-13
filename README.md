@@ -2,43 +2,43 @@
 
 [Piwik](http://www.piwik.org)-Integration for ZendFramework2
 
-This module integrates the piwik-tracking-code into all WebViews of your ZF2-Site
+This module uses the PHP Tracker to track requests to your website without using any client-side JavaScript.  While this could serve many purposes, the original was to support a legacy application that did not permit easy injection of the client-side tracking code.
 
 ## Installation:
 
-Piwik is best installed via [composer](http://getcomposer.org). Include the following line into the 
-```require```-section of your ```composer.json```-File:
-
-    "org_heigl/piwik" : "1.0.*"
-    
+It should be possible to use DaleyPiwik through [composer](http://getcomposer.org) and Git submodules.
 
 ## Usage:
 
  1. Add the module to the ```modules```-list of your applications ```application.config.php```-File.
- 2. Copy this modules ```module.config.php```-File to your applications ```config/autoload``-directory and edit it according to your piwik-settings.
+ 2. Copy ```daleypiwik.local.php.dist``` to your application's ```config/autoload``-directory, remove the ```.dist``` extension, and edit it according to your piwik-settings.
  3. There is no third step!
  
 ## Configuration:
 
-The configuration consists of two parameters:
+While it may be possible to passively track pageviews for a ZF2 application that is not configured to support this tracker, the performance will be best with an application designed to actively interact with DaleyPiwik.  The recommended extension strategy is to use a [Delegator](http://framework.zend.com/manual/current/en/modules/zend.service-manager.delegator-factories.html) to attach the tracker to your Controller.
 
-    return array(
-        'orgHeiglPiwik' => array(
-    
-            // Always omit a trailing slash!
-            'server' => 'example.org',
-            'site_id' => 1,
-        ), 
-    );
-    
- * **server** is the server your piwik installation is running at. Omit a trailing slash as well as a scheme (```http://``` or ```https://```). If you have installed piwik in a subdirectory you will have to include that here as well. So it would read ```example.org/piwik``` when you have installed your piwik-instance in the subdirectory ```piwik``` on the server ```example.org```.
- * **site_id** is the ID of the site you want to track as configured in your piwik-installation.
+A sample configuration profile is found in `/config/daleypiwik.local.php.dist`
 
+    'DaleyPiwik' => array(
+        // Always omit a trailing slash!
+        'server' => 'my.piwikserver.com',
+        'site_id' => 0,
+        'api_token' => "abcdefghijk123456789",
+        'cookie_config' => array(
+            'domain' => '*.mydomain.com',
+            'path' => '/',
+        )
+        /**
+         * Fill with rest of Piwik Tracking Code Settings
+         */
+    ),
+    
 ## Feedback:
 
-Feel free to provide feedback by opening [issues](https://github.com/heiglandreas/piwik/issues) or pull-requests or by contacting me directly at ```piwik (AT) heigl (DOT) org```
+Feel free to provide feedback by opening [issues](https://github.com/claytondaley/daleypiwik/issues) or pull-requests
 
 ## License:
 
-This module is licensed according to the [LICENSE](LICENSE)-Document.
+This module is licensed according to the [LICENSE](LICENSE.txt)-Document.
 
