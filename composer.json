@@ -1,26 +1,21 @@
 {
     "name": "org_heigl/piwik",
-    "description": "Easy way to integrate piwik (http://piwik.org) analysis into a Zend-Framework Project ",
+    "description": "Integrate Piwik (http://piwik.org) into a Zend-Framework Project.  This module was designed to use the PHP Tracker (no client-side JS) to support a legacy application.",
     "type": "library",
-    "license": "MIT",
-    "keywords": [
-        "zf2", "piwik"
-    ],
-    "homepage": "https://github.com/heiglandreas/piwik",
-    "authors": [
-        {
-            "name": "Andreas Heigl",
-            "email": "andreas@heigl.org",
-            "homepage": "http://andreas.heigl.org"
-        }
-    ],
+    "license": "GPL-3.0+",
+    "keywords": ["zf2", "piwik"],
+	"support": {
+        "issues": "https://github.com/claytondaley/DaleyPiwik/issues",
+        "source": "https://github.com/claytondaley/DaleyPiwik"
+    },
+    "homepage": "https://github.com/claytondaley/DaleyPiwik",
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.3.*"
     },
     "autoload": {
         "psr-0": {
-            "OrgHeiglPiwik": "src/"
+            "DaleyPiwik": "src/"
         },
         "classmap": [
             "./Module.php"
