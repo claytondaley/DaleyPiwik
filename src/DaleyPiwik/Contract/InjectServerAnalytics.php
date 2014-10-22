@@ -26,26 +26,3 @@ interface InjectServerAnalytics
      */
     public function addServerAnalytics($server);
 }
-
-trait InjectServerAnalyticsTrait
-{
-    private $serverAnalyticsServices = [];
-
-    /**
-     * @param $service
-     */
-    function addServerAnalytics($service) {
-        $this->serverAnalyticsServices[] = $service;
-    }
-
-    /**
-     * @param $title
-     */
-    private function trackPageView($title)
-    {
-        foreach ($this->$serverAnalyticsServices as $serverAnalyticsService) {
-            $serverAnalyticsService->trackPageView($title);
-        }
-    }
-
-}

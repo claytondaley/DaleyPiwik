@@ -16,18 +16,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-return array(
-    'service_manager' => array(
-        'factories' => array(
-            'DaleyPiwik\Service\PhpTracker' => 'DaleyPiwik\Service\PhpTrackerFactory',
-        ),
-    ),
-    /*
-    'services' => array(
-        'invokables' => array(
-            'DaleyPiwik\Contract\InjectServerAnalytics' => 'DaleyPiwik\Contract\InjectServerAnalytics',
-            'DaleyPiwik\Contract\InjectServerAnalyticsTrait' => 'DaleyPiwik\Contract\InjectServerAnalytics',
-        )
-    ),
-    */
-);
+namespace DaleyPiwik\Contract;
+
+trait InjectServerAnalyticsTrait
+{
+    private $serverAnalyticsServices = [];
+
+    /**
+     * @param $service
+     */
+    function addServerAnalytics($service) {
+        $this->serverAnalyticsServices[] = $service;
+    }
+
+    /**
+     * @param $title
+     */
+    private function trackPageView($title)
+    {
+        foreach ($this->$serverAnalyticsServices as $serverAnalyticsService) {
+            $serverAnalyticsService->trackPageView($title);
+        }
+    }
+
+}
