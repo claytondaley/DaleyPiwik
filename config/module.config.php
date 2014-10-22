@@ -21,5 +21,9 @@ return array(
         'factories' => array(
             'DaleyPiwik\Service\PhpTracker' => 'DaleyPiwik\Service\PhpTrackerFactory',
         ),
+        'invokables' => array(
+            'DaleyPiwik\Contract\InjectServerAnalytics' => 'DaleyPiwik\Contract\InjectServerAnalytics',
+            'DaleyPiwik\Contract\InjectServerAnalyticsTrait' => 'DaleyPiwik\Contract\InjectServerAnalytics',
+        )
     ),
 );
