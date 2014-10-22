@@ -27,10 +27,3 @@ interface ServerAnalytics
     public function injectAnalytics(InjectServerAnalytics $object);
     public function trackPageView($title);
 }
-
-trait ServerAnalyticsTrait {
-    public function injectAnalytics(InjectServerAnalytics $object)
-    {
-        $object->addServerAnalytics($this);
-    }
-}

@@ -31,7 +31,7 @@ class PhpTracker
 
     private $piwikTracker;
 
-    private function connect($tracker)
+    private function initTracker($tracker)
     {
         $this->$piwikTracker = $tracker;
     }
