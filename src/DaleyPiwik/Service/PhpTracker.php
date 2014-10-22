@@ -20,6 +20,7 @@ namespace DaleyPiwik\Service;
 
 use DaleyPiwik\Contract\ServerAnalytics;
 use DaleyPiwik\Contract\ServerAnalyticsTrait;
+use PiwikTracker;
 
 class PhpTracker
     implements ServerAnalytics
@@ -31,15 +32,15 @@ class PhpTracker
 
     private $piwikTracker;
 
-    private function initTracker($tracker)
+    public function initTracker(PiwikTracker $tracker)
     {
         $this->$piwikTracker = $tracker;
     }
 
     public function trackPageView($title)
     {
-        $this->setIp( "134.10.22.1" );
-        $this->$piwikTracker->doTrackPageView($title);
+        $this->piwikTracker->setIp( "134.10.22.1" );
+        $this->piwikTracker->doTrackPageView($title);
     }
 
 }

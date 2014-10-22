@@ -20,21 +20,25 @@ namespace DaleyPiwik\Service;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use PiwikTracker;
 
 class PhpTrackerFactory implements FactoryInterface
 {
+    /**
+     * @param ServiceLocatorInterface $sl
+     * @return PhpTracker
+     */
     public function createService(ServiceLocatorInterface $sl)
     {
-        $phpTracker = new PhpTracker();
         # Get DaleyPiwik config
-        $config = $sl->get('config')['DaleyPiwik'];
-        require_once __DIR__ . "/../../libs/PiwikTracker/PiwikTracker.php";
+        # $config = $sl->get('config')['DaleyPiwik'];
         /** @noinspection SpellCheckingInspection */
-        $piwikTracker = PiwikTracker( $idSite = $config['site_id'], $config['server'] );
+        # $piwikTracker = new PiwikTracker( $idSite = $config['site_id'], $config['server'] );
         /** @noinspection SpellCheckingInspection */
-        $piwikTracker->setTokenAuth( $config['api_token'] );
-        $phpTracker.initTracker($piwikTracker);
+        # $piwikTracker->setTokenAuth( $config['api_token'] );
 
+        $phpTracker = new PhpTracker();
+        # $phpTracker.initTracker($piwikTracker);
         return $phpTracker;
     }
 }
