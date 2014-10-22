@@ -16,10 +16,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-return array(
-    'service_manager' => array(
-        'factories' => array(
-            'DaleyPiwik\Service\PhpTracker' => 'DaleyPiwik\Service\PhpTrackerFactory',
-        ),
-    ),
-);
+namespace DaleyPiwik\Service;
+
+use DaleyPiwik\Contract\ServerAnalytics;
+use DaleyPiwik\Contract\ServerAnalyticsTrait;
+
+class PhpTracker
+    implements ServerAnalytics
+{
+    /*
+     * Default implementation for ServerAnalytics interface
+     */
+    use ServerAnalyticsTrait;
+
+    private $piwikTracker;
+
+    private function connect($tracker)
+    {
+        $this->$piwikTracker = $tracker;
+    }
+
+    public function trackPageView($title)
+    {
+        $this->setIp( "134.10.22.1" );
+        $this->$piwikTracker->doTrackPageView($title);
+    }
+
+}

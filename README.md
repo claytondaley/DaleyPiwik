@@ -2,15 +2,11 @@
 
 [Piwik](http://www.piwik.org)-Integration for ZendFramework2
 
-This module integrates the piwik-tracking-code into all WebViews of your ZF2-Site
+This module uses the PHP Tracker to track requests to your website without using any client-side JavaScript.  While this could serve many purposes, the original was to support a legacy application that did not permit easy injection of the client-side tracking code.
 
 ## Installation:
 
-Piwik is best installed via [composer](http://getcomposer.org). Include the following line into the 
-```require```-section of your ```composer.json```-File:
-
-    "org_heigl/piwik" : "1.0.*"
-    
+Future versions may support [composer](http://getcomposer.org). For now, the recommended strategy is a Git submodule.
 
 ## Usage:
 

@@ -16,10 +16,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-return array(
-    'service_manager' => array(
-        'factories' => array(
-            'DaleyPiwik\Service\PhpTracker' => 'DaleyPiwik\Service\PhpTrackerFactory',
-        ),
+return array (
+    'DaleyPiwik' => array(
+        // Always omit a trailing slash!
+        'server' => 'daleycrm.com',
+        'site_id' => 1,
+        'api_token' => "",
+        /**
+         * Fill with rest of Piwik Tracking Code Settings
+         */
     ),
 );

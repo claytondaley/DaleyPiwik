@@ -1,0 +1,9 @@
+DaleyPiwik ZF2 Module
+Copyright (c) 2014, Clayton Daley III
+All rights reserved.
+
+Copies of relevant licenses can be found in the licenses directory. The following
+license apply to various aspects of this distribution:
+
+DaleyPiwik - The DaleyPiwik module is distributed under GPL version 3.0+.
+PiwikTracker - Distributed under the BSD License.  For more information, see the header of PiwikTracker.php.

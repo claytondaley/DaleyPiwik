@@ -16,10 +16,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-return array(
-    'service_manager' => array(
-        'factories' => array(
-            'DaleyPiwik\Service\PhpTracker' => 'DaleyPiwik\Service\PhpTrackerFactory',
-        ),
-    ),
-);
+namespace DaleyPiwik\Contract;
+
+interface InjectClientAnalytics
+{
+    /**
+     * @param $client_analytics
+     * @return mixed
+     */
+    public function add_client_analytics($client_analytics);
+}

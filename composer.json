@@ -1,5 +1,5 @@
 {
-    "name": "org_heigl/piwik",
+    "name": "claytondaley/piwiktracker",
     "description": "Integrate Piwik (http://piwik.org) into a Zend-Framework Project.  This module was designed to use the PHP Tracker (no client-side JS) to support a legacy application.",
     "type": "library",
     "license": "GPL-3.0+",
