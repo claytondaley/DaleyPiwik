@@ -20,7 +20,7 @@ namespace DaleyPiwik\Service;
 
 use DaleyPiwik\Contract\ServerSideAnalytics;
 use DaleyPiwik\Contract\ServerSideAnalyticsTrait;
-use PiwikTracker;
+use Piwik\PiwikTracker;
 
 class PhpTracker
     implements ServerSideAnalytics

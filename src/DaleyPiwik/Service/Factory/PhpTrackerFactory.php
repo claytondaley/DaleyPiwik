@@ -18,7 +18,7 @@
 
 namespace DaleyPiwik\Service\Factory;
 
-use PiwikTracker;
+use Piwik\PiwikTracker;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use DaleyPiwik\Service\PhpTracker;

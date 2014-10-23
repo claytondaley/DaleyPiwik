@@ -1,4 +1,6 @@
 <?php
+namespace Piwik;
+
 /**
  * Piwik - free/libre analytics platform
  *
