@@ -40,7 +40,6 @@ class PhpTracker
 
     public function trackPageView($title)
     {
-        die("ServerSideAnalytics for $title");
         $this->piwikTracker->setIp( "10.10.10.10" );
         $this->piwikTracker->doTrackPageView($title);
     }
