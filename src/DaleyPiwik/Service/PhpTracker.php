@@ -33,6 +33,10 @@ class PhpTracker
     /** @var $piwikTracker PiwikTracker */
     private $piwikTracker;
 
+    /**
+     * Initialize the PiwikTracker object (called by Factory after configuring tracker)
+     * @param PiwikTracker $tracker
+     */
     public function initTracker(PiwikTracker $tracker)
     {
         $this->piwikTracker = $tracker;

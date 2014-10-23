@@ -1,6 +1,8 @@
 <?php
 namespace Piwik;
 
+use Exception;
+
 /**
  * Piwik - free/libre analytics platform
  *

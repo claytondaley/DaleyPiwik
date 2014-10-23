@@ -35,6 +35,10 @@ class PhpTrackerFactory implements FactoryInterface
         $config = $sl->get('config')['DaleyPiwik'];
         /** @noinspection SpellCheckingInspection */
         $piwikTracker = new PiwikTracker( $idSite = $config['site_id'], $config['server'] );
+        if (array_key_exists('cookie_config', $config)) {
+            /** @noinspection SpellCheckingInspection */
+            $piwikTracker->enableCookies( $config['cookie_config']['domain'], $config['cookie_config']['path'] );
+        }
         /** @noinspection SpellCheckingInspection */
         $piwikTracker->setTokenAuth( $config['api_token'] );
 
