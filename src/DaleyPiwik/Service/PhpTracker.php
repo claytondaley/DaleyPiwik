@@ -35,7 +35,7 @@ class PhpTracker
 
     public function initTracker(PiwikTracker $tracker)
     {
-        $this->$piwikTracker = $tracker;
+        $this->piwikTracker = $tracker;
     }
 
     public function trackPageView($title)
