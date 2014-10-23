@@ -35,7 +35,7 @@ trait InjectServerSideAnalyticsTrait
      */
     private function trackPageView($title)
     {
-        foreach ($this->$serverSideAnalyticsServices as $service) {
+        foreach ($this->serverSideAnalyticsServices as $service) {
             /** @var $service ServerSideAnalytics */
             $service->trackPageView($title);
         }
