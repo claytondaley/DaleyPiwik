@@ -39,7 +39,7 @@ class PhpTrackerFactory implements FactoryInterface
         $piwikTracker->setTokenAuth( $config['api_token'] );
 
         $phpTracker = new PhpTracker();
-        $phpTracker.initTracker($piwikTracker);
+        $phpTracker->initTracker($piwikTracker);
         return $phpTracker;
     }
 }
