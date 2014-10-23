@@ -18,16 +18,12 @@
 
 namespace DaleyPiwik\Contract;
 
-interface ClientAnalytics
+interface ServerSideAnalytics
 {
     /**
-     * @param InjectClientAnalytics $object
+     * @param InjectServerAnalytics $object
      * @return mixed
      */
-    public function inject_analytics(InjectClientAnalytics $object);
-    # public function
-}
-
-trait ClientAnalyticsTrait {
-
+    public function injectAnalytics(InjectServerAnalytics $object);
+    public function trackPageView($title);
 }

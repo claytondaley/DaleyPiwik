@@ -18,9 +18,9 @@
 
 namespace DaleyPiwik\Service\Factory;
 
-use DaleyPiwik\Service\PhpTracker;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
+use DaleyPiwik\Service\PhpTracker;
 
 class PhpTrackerFactory implements FactoryInterface
 {
@@ -31,14 +31,14 @@ class PhpTrackerFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $sl)
     {
         # Get DaleyPiwik config
-        # $config = $sl->get('config')['DaleyPiwik'];
+        $config = $sl->get('config')['DaleyPiwik'];
         /** @noinspection SpellCheckingInspection */
-        # $piwikTracker = new PiwikTracker( $idSite = $config['site_id'], $config['server'] );
+        $piwikTracker = new PiwikTracker( $idSite = $config['site_id'], $config['server'] );
         /** @noinspection SpellCheckingInspection */
-        # $piwikTracker->setTokenAuth( $config['api_token'] );
+        $piwikTracker->setTokenAuth( $config['api_token'] );
 
         $phpTracker = new PhpTracker();
-        # $phpTracker.initTracker($piwikTracker);
+        $phpTracker.initTracker($piwikTracker);
         return $phpTracker;
     }
 }

@@ -18,7 +18,7 @@
 
 namespace DaleyPiwik\Contract;
 
-interface InjectClientAnalytics
+interface InjectClientSideAnalytics
 {
     /**
      * @param $client_analytics

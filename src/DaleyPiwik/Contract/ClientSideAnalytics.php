@@ -16,14 +16,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-return array (
-    'DaleyPiwik' => array(
-        // Always omit a trailing slash!
-        'server' => 'daleycrm.com',
-        'site_id' => 1,
-        'api_token' => "",
-        /**
-         * Fill with rest of Piwik Tracking Code Settings
-         */
-    ),
-);
+namespace DaleyPiwik\Contract;
+
+interface ClientSideAnalytics
+{
+    /**
+     * @param InjectClientSideAnalytics $object
+     * @return mixed
+     */
+    public function inject_analytics(InjectClientSideAnalytics $object);
+    # public function
+}
+
+trait ClientAnalyticsTrait {
+
+}

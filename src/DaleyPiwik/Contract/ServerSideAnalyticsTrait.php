@@ -18,8 +18,8 @@
 
 namespace DaleyPiwik\Contract;
 
-trait ServerAnalyticsTrait {
-    public function injectAnalytics(InjectServerAnalytics $object)
+trait ServerSideAnalyticsTrait {
+    public function injectAnalytics(InjectServerSideAnalytics $object)
     {
         $object->addServerAnalytics($this);
     }

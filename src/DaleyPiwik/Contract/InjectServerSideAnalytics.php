@@ -18,25 +18,11 @@
 
 namespace DaleyPiwik\Contract;
 
-trait InjectServerAnalyticsTrait
+interface InjectServerSideAnalytics
 {
-    private $serverAnalyticsServices = [];
-
     /**
-     * @param $service
+     * @param $server
+     * @return mixed
      */
-    function addServerAnalytics($service) {
-        $this->serverAnalyticsServices[] = $service;
-    }
-
-    /**
-     * @param $title
-     */
-    private function trackPageView($title)
-    {
-        foreach ($this->$serverAnalyticsServices as $serverAnalyticsService) {
-            $serverAnalyticsService->trackPageView($title);
-        }
-    }
-
+    public function addServerAnalytics($server);
 }
