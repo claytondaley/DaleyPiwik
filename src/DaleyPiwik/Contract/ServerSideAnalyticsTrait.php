@@ -21,6 +21,6 @@ namespace DaleyPiwik\Contract;
 trait ServerSideAnalyticsTrait {
     public function injectAnalytics(InjectServerSideAnalytics $object)
     {
-        $object->addServerAnalytics($this);
+        $object->addServerSideAnalytics($this);
     }
 }

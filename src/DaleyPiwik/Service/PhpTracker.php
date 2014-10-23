@@ -30,6 +30,7 @@ class PhpTracker
      */
     use ServerSideAnalyticsTrait;
 
+    /** @var $piwikTracker PiwikTracker */
     private $piwikTracker;
 
     public function initTracker(PiwikTracker $tracker)

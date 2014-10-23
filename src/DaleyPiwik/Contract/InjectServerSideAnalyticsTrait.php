@@ -20,13 +20,14 @@ namespace DaleyPiwik\Contract;
 
 trait InjectServerSideAnalyticsTrait
 {
-    private $serverAnalyticsServices = [];
+    private $serverSideAnalyticsServices = [];
 
     /**
      * @param $service
      */
-    function addServerAnalytics($service) {
-        $this->serverAnalyticsServices[] = $service;
+    function addServerSideAnalytics(ServerSideAnalytics $service)
+    {
+        $this->serverSideAnalyticsServices[] = $service;
     }
 
     /**
@@ -34,8 +35,9 @@ trait InjectServerSideAnalyticsTrait
      */
     private function trackPageView($title)
     {
-        foreach ($this->$serverAnalyticsServices as $serverAnalyticsService) {
-            $serverAnalyticsService->trackPageView($title);
+        foreach ($this->$serverSideAnalyticsServices as $service) {
+            /** @var $service ServerSideAnalytics */
+            $service->trackPageView($title);
         }
     }
 
