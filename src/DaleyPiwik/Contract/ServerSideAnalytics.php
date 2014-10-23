@@ -21,9 +21,9 @@ namespace DaleyPiwik\Contract;
 interface ServerSideAnalytics
 {
     /**
-     * @param InjectServerAnalytics $object
+     * @param InjectServerSideAnalytics $object
      * @return mixed
      */
-    public function injectAnalytics(InjectServerAnalytics $object);
+    public function injectAnalytics(InjectServerSideAnalytics $object);
     public function trackPageView($title);
 }

@@ -26,7 +26,7 @@ class PhpTracker
     implements ServerSideAnalytics
 {
     /*
-     * Default implementation for ServerAnalytics interface
+     * Default implementation for ServerSideAnalytics interface
      */
     use ServerSideAnalyticsTrait;
 

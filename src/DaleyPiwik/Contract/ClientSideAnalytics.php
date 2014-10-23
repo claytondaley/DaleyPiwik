@@ -28,6 +28,6 @@ interface ClientSideAnalytics
     # public function
 }
 
-trait ClientAnalyticsTrait {
+trait ClientSideAnalyticsTrait {
 
 }
