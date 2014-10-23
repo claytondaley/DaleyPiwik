@@ -19,7 +19,7 @@
 return array(
     'service_manager' => array(
         'factories' => array(
-            'DaleyPiwik\Service\PhpTracker' => 'DaleyPiwik\Service\PhpTrackerFactory',
+            'DaleyPiwik\Service\PhpTracker' => 'DaleyPiwik\Service\Factory\PhpTrackerFactory',
         ),
     ),
 );

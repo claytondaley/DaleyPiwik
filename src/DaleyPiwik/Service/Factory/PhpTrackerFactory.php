@@ -16,11 +16,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace DaleyPiwik\Service;
+namespace DaleyPiwik\Service\Factory;
 
+use DaleyPiwik\Service\PhpTracker;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use PiwikTracker;
 
 class PhpTrackerFactory implements FactoryInterface
 {
