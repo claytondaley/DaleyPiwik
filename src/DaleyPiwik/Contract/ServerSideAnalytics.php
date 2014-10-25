@@ -26,4 +26,5 @@ interface ServerSideAnalytics
      */
     public function injectAnalytics(InjectServerSideAnalytics $object);
     public function trackPageView($title);
+    public function trackSiteSearch($keyword, $category, $countResults);
 }

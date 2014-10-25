@@ -41,4 +41,17 @@ trait InjectServerSideAnalyticsTrait
         }
     }
 
+    /**
+     * @param $keyword
+     * @param $category
+     * @param $countResults
+     */
+    private function trackSiteSearch($keyword, $category, $countResults)
+    {
+        foreach ($this->serverSideAnalyticsServices as $service) {
+            /** @var $service ServerSideAnalytics */
+            $service->trackSiteSearch($keyword, $category, $countResults);
+        }
+    }
+
 }

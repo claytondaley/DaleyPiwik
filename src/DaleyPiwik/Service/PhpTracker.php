@@ -42,10 +42,18 @@ class PhpTracker
         $this->piwikTracker = $tracker;
     }
 
+    # see http://developer.piwik.org/api-reference/PHP-Piwik-Tracker
+
     public function trackPageView($title)
     {
         $this->piwikTracker->setIp( "10.10.10.10" );
         $this->piwikTracker->doTrackPageView($title);
+    }
+
+    public function trackSiteSearch($keyword, $category, $countResults)
+    {
+        $this->piwikTracker->setIp( "10.10.10.10" );
+        $this->piwikTracker->doTrackSiteSearch($keyword, $category, $countResults);
     }
 
 }
