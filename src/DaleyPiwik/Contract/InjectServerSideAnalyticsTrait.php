@@ -54,4 +54,15 @@ trait InjectServerSideAnalyticsTrait
         }
     }
 
+    /**
+     * @param $actionUrl
+     */
+    private function trackDownload($actionUrl)
+    {
+        foreach ($this->serverSideAnalyticsServices as $service) {
+            /** @var $service ServerSideAnalytics */
+            $service->trackDownload($actionUrl);
+        }
+    }
+
 }

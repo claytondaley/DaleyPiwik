@@ -54,4 +54,9 @@ class PhpTracker
         $this->piwikTracker->doTrackSiteSearch($keyword, $category, $countResults);
     }
 
+    public function trackDownload($actionUrl)
+    {
+        $this->piwikTracker->doTrackAction($actionUrl, 'download');
+    }
+
 }
