@@ -34,6 +34,12 @@ use Zend\Mvc\MvcEvent;
 use Zend\View\ViewEvent;
 use Zend\View\View;
 
+/**
+ * Class JsTracker
+ *
+ * WARNING:  This codebase was originally delivered as a drop-in module and has not (yet) been reconfigured to function
+ * as a service.
+ */
 class JsTracker {
 
     protected $template = <<<EOT
@@ -54,7 +60,7 @@ EOT;
         $this->serviceManager = $e->getApplication()->getServiceManager();
     }
 
-    public function old_init()
+    public function init()
     {
         // Attach Event to EventManager
         $events = StaticEventManager::getInstance ();
