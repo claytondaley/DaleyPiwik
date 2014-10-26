@@ -46,16 +46,19 @@ class PhpTracker
 
     public function trackPageView($title)
     {
+        # die($this->piwikTracker->getUrlTrackPageView($title));
         $this->piwikTracker->doTrackPageView($title);
     }
 
     public function trackSiteSearch($keyword, $category, $countResults)
     {
+        # die($this->piwikTracker->getUrlTrackSiteSearch($keyword, $category, $countResults));
         $this->piwikTracker->doTrackSiteSearch($keyword, $category, $countResults);
     }
 
     public function trackDownload($actionUrl)
     {
+        # die($this->piwikTracker->getUrlTrackAction($actionUrl, 'download'));
         $this->piwikTracker->doTrackAction($actionUrl, 'download');
     }
 
