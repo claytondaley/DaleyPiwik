@@ -18,51 +18,68 @@
 
 namespace DaleyPiwik\Contract;
 
-trait InjectServerSideAnalyticsTrait
+trait ServerSideAnalyticsConsumerTrait
 {
     private $serverSideAnalyticsServices = [];
 
     /**
      * @param $service
      */
-    function addServerSideAnalytics(ServerSideAnalytics $service)
+    function addServerSideAnalytics(ServerSideAnalyticsInterface $service)
     {
         $this->serverSideAnalyticsServices[] = $service;
     }
 
     /**
      * @param $title
+     * @return bool
      */
     private function trackPageView($title)
     {
+        $tracked = false;
         foreach ($this->serverSideAnalyticsServices as $service) {
             /** @var $service ServerSideAnalytics */
-            $service->trackPageView($title);
+            if ($service::$CAN_TRACK_PAGEVIEW) {
+                $service->trackPageView($title);
+                $tracked = true;
+            }
         }
+        return $tracked;
     }
 
     /**
      * @param $keyword
      * @param $category
      * @param $countResults
+     * @return bool
      */
     private function trackSiteSearch($keyword, $category, $countResults)
     {
+        $tracked = false;
         foreach ($this->serverSideAnalyticsServices as $service) {
             /** @var $service ServerSideAnalytics */
-            $service->trackSiteSearch($keyword, $category, $countResults);
+            if ($service::$CAN_TRACK_SITESEARCH) {
+                $service->trackSiteSearch($keyword, $category, $countResults);
+                $tracked = true;
+            }
         }
+        return $tracked;
     }
 
     /**
      * @param $actionUrl
+     * @return bool
      */
     private function trackDownload($actionUrl)
     {
+        $tracked = false;
         foreach ($this->serverSideAnalyticsServices as $service) {
             /** @var $service ServerSideAnalytics */
-            $service->trackDownload($actionUrl);
+            if ($service::$CAN_TRACK_SITESEARCH) {
+                $service->trackDownload($actionUrl);
+                $tracked = true;
+            }
         }
+        return $tracked;
     }
-
 }

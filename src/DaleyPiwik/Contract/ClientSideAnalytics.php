@@ -18,16 +18,6 @@
 
 namespace DaleyPiwik\Contract;
 
-interface ClientSideAnalytics
-{
-    /**
-     * @param InjectClientSideAnalytics $object
-     * @return mixed
-     */
-    public function inject_analytics(InjectClientSideAnalytics $object);
-    # public function
-}
-
-trait ClientSideAnalyticsTrait {
-
+abstract class ClientSideAnalytics implements ClientSideAnalyticsInterface {
+    use ClientSideAnalyticsTrait;
 }

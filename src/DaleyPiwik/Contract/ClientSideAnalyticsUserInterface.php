@@ -18,6 +18,11 @@
 
 namespace DaleyPiwik\Contract;
 
-abstract class ServerSideAnalytics implements ServerSideAnalyticsInterface {
-    use ServerSideAnalyticsTrait;
+interface ClientSideAnalyticsUserInterface
+{
+    /**
+     * @param $client_analytics
+     * @return mixed
+     */
+    public function addClientAnalytics($client_analytics);
 }

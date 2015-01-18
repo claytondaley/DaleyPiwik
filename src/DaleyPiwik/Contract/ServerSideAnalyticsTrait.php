@@ -19,7 +19,13 @@
 namespace DaleyPiwik\Contract;
 
 trait ServerSideAnalyticsTrait {
-    public function injectAnalytics(InjectServerSideAnalytics $object)
+
+    public static $CAN_TRACK_PAGEVIEW = false;
+    public static $CAN_TRACK_SITESEARCH = false;
+    public static $CAN_TRACK_DOWNLOAD = false;
+    public static $CAN_USE_USERID = false;
+
+    public function injectAnalytics(ServerSideAnalyticsUserInterface $object)
     {
         $object->addServerSideAnalytics($this);
     }

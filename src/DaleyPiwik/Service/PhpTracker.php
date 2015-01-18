@@ -19,16 +19,14 @@
 namespace DaleyPiwik\Service;
 
 use DaleyPiwik\Contract\ServerSideAnalytics;
-use DaleyPiwik\Contract\ServerSideAnalyticsTrait;
 use Piwik\PiwikTracker;
 
-class PhpTracker
-    implements ServerSideAnalytics
+class PhpTracker extends ServerSideAnalytics
 {
-    /*
-     * Default implementation for ServerSideAnalytics interface
-     */
-    use ServerSideAnalyticsTrait;
+    public static $CAN_TRACK_PAGEVIEW = true;
+    public static $CAN_TRACK_SITESEARCH = true;
+    public static $CAN_TRACK_DOWNLOAD = true;
+    public static $CAN_USE_USERID = true;
 
     /** @var $piwikTracker PiwikTracker */
     private $piwikTracker;
@@ -62,4 +60,8 @@ class PhpTracker
         $this->piwikTracker->doTrackAction($actionUrl, 'download');
     }
 
+    public function useUserId($userId)
+    {
+        $this->piwikTracker->setUserId($userId);
+    }
 }

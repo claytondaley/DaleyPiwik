@@ -18,6 +18,15 @@
 
 namespace DaleyPiwik\Contract;
 
-abstract class ServerSideAnalytics implements ServerSideAnalyticsInterface {
-    use ServerSideAnalyticsTrait;
+trait ClientSideAnalyticsTrait {
+
+    public static $CAN_TRACK_PAGEVIEW = false;
+    public static $CAN_TRACK_SITESEARCH = false;
+    public static $CAN_TRACK_DOWNLOAD = false;
+    public static $CAN_USE_USERID = false;
+
+    public function injectAnalytics(ClientSideAnalyticsUserInterface $object)
+    {
+        $object->addClientAnalytics($this);
+    }
 }
