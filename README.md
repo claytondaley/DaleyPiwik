@@ -6,7 +6,7 @@ This module uses the PHP Tracker to track requests to your website without using
 
 ## Installation:
 
-Future versions may support [composer](http://getcomposer.org). For now, the recommended strategy is a Git submodule.
+It should be possible to use DaleyPiwik through [composer](http://getcomposer.org) and Git submodules.
 
 ## Usage:
 
@@ -16,7 +16,21 @@ Future versions may support [composer](http://getcomposer.org). For now, the rec
  
 ## Configuration:
 
-The configuration consists of two parameters:
+Robust, server-side tracking must be supported by the Module serving the pages so the connection is established in that module's `module.config.php`
+
+    'controllers' => array(
+        ...
+        'initializers' => array (
+            function ($instance, $sm) {
+                if ($instance instanceof \LegacyRS\Controller\LegacyRSController) {
+                    $instance->addServerSideAnalytics($sm->getServiceLocator()->get('DaleyPiwik\Service\PhpTracker'));
+                }
+            },
+        )
+        ...
+    ),
+
+A sample configuration profile is found in `/config/daleypiwik.local.php.dist`
 
     return array(
         'orgHeiglPiwik' => array(
@@ -27,12 +41,9 @@ The configuration consists of two parameters:
         ), 
     );
     
- * **server** is the server your piwik installation is running at. Omit a trailing slash as well as a scheme (```http://``` or ```https://```). If you have installed piwik in a subdirectory you will have to include that here as well. So it would read ```example.org/piwik``` when you have installed your piwik-instance in the subdirectory ```piwik``` on the server ```example.org```.
- * **site_id** is the ID of the site you want to track as configured in your piwik-installation.
-
 ## Feedback:
 
-Feel free to provide feedback by opening [issues](https://github.com/heiglandreas/piwik/issues) or pull-requests or by contacting me directly at ```piwik (AT) heigl (DOT) org```
+Feel free to provide feedback by opening [issues](https://github.com/claytondaley/daleypiwik/issues) or pull-requests
 
 ## License:
 
