@@ -18,7 +18,7 @@
 
 namespace DaleyPiwik\Contract;
 
-trait ServerSideAnalyticsConsumerTrait
+trait ServerSideAnalyticsUserTrait
 {
     private $serverSideAnalyticsServices = [];
 
