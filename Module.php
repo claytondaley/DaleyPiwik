@@ -20,7 +20,7 @@ class Module
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
-                    'Piwik' => __DIR__ . '/libs/' . 'Piwik',
+                    'Piwik' => getcwd() . '/vendor/piwik-php-tracker',
                 ),
             ),
         );

@@ -11,7 +11,8 @@
     "homepage": "https://github.com/claytondaley/DaleyPiwik",
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zendframework": "2.3.*"
+        "zendframework/zendframework": "2.3.*",
+        "piwik/piwik-php-tracker": "dev-master"
     },
     "autoload": {
         "psr-0": {
