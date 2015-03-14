@@ -30,4 +30,11 @@ return array (
          * Fill with rest of Piwik Tracking Code Settings
          */
     ),
+    'service_manager' => array(
+        'delegators' => array(
+            'MyApp\Controller\MyController' => array(
+                'DAM4\Delegator\InjectPiwikPhpTracker',
+            ),
+        ),
+    ),
 );

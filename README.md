@@ -13,12 +13,8 @@ It should be possible to use DaleyPiwik through [composer](http://getcomposer.or
  1. Add the module to the ```modules```-list of your applications ```application.config.php```-File.
  2. Copy ```daleypiwik.local.php.dist``` to your application's ```config/autoload``-directory, remove the ```.dist``` extension, and edit it according to your piwik-settings.
  3. There is no third step!
- 
-## Configuration:
 
-While it may be possible to passively track pageviews for a ZF2 application that is not configured to support this tracker, the performance will be best with an application designed to actively interact with DaleyPiwik.  The recommended extension strategy is to use a [Delegator](http://framework.zend.com/manual/current/en/modules/zend.service-manager.delegator-factories.html) to attach the tracker to your Controller.
-
-A sample configuration profile is found in `/config/daleypiwik.local.php.dist`
+The supported configuration options are found in `/config/daleypiwik.local.php.dist`
 
     'DaleyPiwik' => array(
         // Always omit a trailing slash!
@@ -29,11 +25,24 @@ A sample configuration profile is found in `/config/daleypiwik.local.php.dist`
             'domain' => '*.mydomain.com',
             'path' => '/',
         )
-        /**
-         * Fill with rest of Piwik Tracking Code Settings
-         */
+        ...
     ),
-    
+
+## Configuration:
+
+While it may be possible to passively track pageviews for a ZF2 application, you'll get better data if the Application's Controllers are designed to actively interact with DaleyPiwik.  The recommended extension strategy is to use a [Delegator](http://framework.zend.com/manual/current/en/modules/zend.service-manager.delegator-factories.html) to attach the tracker to your Controller.  DaleyPiwik ships with a Delegator and the default configuration file (`/config/daleypiwik.local.php.dist`) shows how to attach this to your controller (assuming your controller implements `DaleyPiwik\Contract\ServerSideAnalyticsUserInterface`).
+
+    return array (
+        ...
+        'service_manager' => array(
+            'delegators' => array(
+                'MyApp\Controller\MyController' => array(
+                    'DAM4\Delegator\InjectPiwikPhpTracker',
+                ),
+            ),
+        ),
+    );
+
 ## Feedback:
 
 Feel free to provide feedback by opening [issues](https://github.com/claytondaley/daleypiwik/issues) or pull-requests

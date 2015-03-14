@@ -17,6 +17,7 @@ class Module
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                    // Patch until Piwik manages own namespace
                     'Piwik' => getcwd() . '/vendor/piwik/piwik-php-tracker',
                 ),
             ),
