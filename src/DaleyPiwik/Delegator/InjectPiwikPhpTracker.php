@@ -9,6 +9,7 @@
 namespace DaleyPiwik\Delegator;
 
 
+use Zend\Mvc\Controller\ControllerManager;
 use Zend\ServiceManager\DelegatorFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
@@ -30,7 +31,8 @@ class InjectPiwikPhpTracker implements DelegatorFactoryInterface
         /** @var $controller \DaleyPiwik\Contract\ServerSideAnalyticsUserInterface */
         $controller = $callback();
 
-        $controller->addServerSideAnalytics($serviceLocator->get('DaleyPiwik\Service\PhpTracker'));
+        /** @var ControllerManager $serviceLocator */
+        $controller->addServerSideAnalytics($serviceLocator->getServiceLocator()->get('DaleyPiwik\Service\PhpTracker'));
 
         return $controller;
 
